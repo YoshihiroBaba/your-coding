@@ -1,0 +1,25 @@
+@mixin responsive($size){
+    $with:0;
+    @if($size == md){
+        $with:1280px;
+    } @else if($size == sm){
+        $with:768px;
+    }
+    @media screen and(max-width:$with) {
+        @content;
+    }
+}
+
+@mixin responsive--min($size){
+    $with:0;
+    @if($size == lg){
+        $with:1500px;
+    } @else if($size == sm){
+        $with:768px;
+    }
+    @media screen and(min-width:$with) {
+        @content;
+    }
+}
+
+
