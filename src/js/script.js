@@ -1,3 +1,5 @@
+// import '../scss/style.scss';
+
 $(function () {
   // バーガーメニュー
   $(".burger").click(function () {

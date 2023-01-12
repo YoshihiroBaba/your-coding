@@ -245,7 +245,7 @@ input[type=checkbox]:checked::after {
 .burger {
   width: 45px;
   height: 45px;
-  background-image: url(/public/images/menu.png);
+  background-image: url(../images/menu.png);
   background-size: 3em;
   background-position: center;
   background-repeat: no-repeat;
@@ -264,7 +264,7 @@ input[type=checkbox]:checked::after {
   }
 }
 .burger.is-active {
-  background-image: url(/public/images/close.png);
+  background-image: url(../images/close.png);
   background-color: #fff;
 }
 .burger__menu {
@@ -317,7 +317,7 @@ input[type=checkbox]:checked::after {
 }
 
 .mv {
-  background-image: url(/public/images/oblong.png);
+  background-image: url(../images/oblong.png);
   background-position: top -60px right -130px;
   background-repeat: no-repeat;
   background-size: 750px auto;
@@ -828,7 +828,7 @@ input[type=checkbox]:checked::after {
 }
 @media screen and (max-width: 768px) {
   .works-card {
-    max-width: 322 px;
+    max-width: 322;
   }
 }
 .works-card__img-wrapper {
