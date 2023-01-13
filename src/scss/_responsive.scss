@@ -5,7 +5,7 @@
     } @else if($size == sm){
         $with:768px;
     }
-    @media screen and(max-width:$with) {
+    @media screen and (max-width:$with) {
         @content;
     }
 }
@@ -17,7 +17,7 @@
     } @else if($size == sm){
         $with:768px;
     }
-    @media screen and(min-width:$with) {
+    @media screen and (min-width:$with) {
         @content;
     }
 }
