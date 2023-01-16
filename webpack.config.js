@@ -2,16 +2,17 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 
 module.exports = {
-  mode: 'development', //デフォルト
-  devtool: 'source-map',
+  mode: "development", //デフォルト
+  // devtool: 'source-map',
   mode: "development",
-  entry: "./src/js/script.js",
+  entry: "./src/js/main.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "js/script.js",
-    publicPath: '/',
+    filename: "js/[name]-[contenthash].js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -46,9 +47,9 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|jpeg|svg|gif)/,
-        type: "asset/resource", 
+        type: "asset/resource",
         generator: {
-          filename: "images/[name][ext]",
+          filename: "images/[name]-[contenthash][ext]", //[contentshash]でランダムに設定し、キャッシュをリセットする
         },
         use: [
           // webpack4までの記述
@@ -60,22 +61,27 @@ module.exports = {
           //   },
           // },
           {
-            loader: 'image-webpack-loader',
+            loader: "image-webpack-loader",
             options: {
               //どのくらい圧縮するかを指定できる
             },
           },
         ],
       },
+      {
+        test: /\.html$/i,
+        loader: "html-loader", //<%= require() %>を使わなくてもよいように
+      },
     ],
   },
   plugins: [
+    // new RemoveEmptyScriptsPlugin(),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "./css/style.css",
+      filename: "./css/[name]-[contenthash].css",
     }),
     new HtmlWebpackPlugin({
       template: "./src/templates/index.html",
     }),
-    new CleanWebpackPlugin(),
   ],
 };

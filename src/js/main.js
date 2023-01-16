@@ -1,8 +1,10 @@
-import '../scss/style.scss';
+import '../scss/main.scss';
+import Swiper from 'swiper/bundle';
 
 $(function () {
   // バーガーメニュー
-  $(".burger").click(function () {
+  $(".burger").off('click');
+  $(".burger").on('click', function () {
     $(".burger").toggleClass("is-active");
     $(".burger__menu").slideToggle(400).toggleClass("is-active");
     $(window).scroll(function(){
@@ -12,7 +14,8 @@ $(function () {
 
   });
   // アコーディオン
-  $(".faq__detail > dt").click(function () {
+  $(".faq__detail > dt").off('click');
+  $(".faq__detail > dt").on('click', function () {
     $(this).next().slideToggle(400);
   });
   // 入力チェック
@@ -71,6 +74,7 @@ $(function () {
   });
 });
 
+
 const swiper = new Swiper(".works__slider", {
   // Optional parameters
   loop: true, //ループするか
@@ -83,7 +87,7 @@ const swiper = new Swiper(".works__slider", {
   // loopedSlides: 3,
   // slidesPerView: "auto",
   autoplay: {
-    delay: 5,
+    delay: 10,
     disableOnInteraction: false,
   },
 
@@ -111,21 +115,24 @@ const swiper = new Swiper(".works__slider", {
     },
     1800: {
       slidesPerView: 4.88,
+      slidesPerView: 7,
       // slidesPerGroup: 3,
     },
   },
 
     // If we need pagination　まるぽちの位置表示ボタン
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'progressber',
-    },
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     type: 'progressber',
+  //   },
 
-    // Navigation arrows　次へ　前へ　ボタン
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  //   // Navigation arrows　次へ　前へ　ボタン
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
 });
+
+
 
 AOS.init();
