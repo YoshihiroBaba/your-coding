@@ -14,6 +14,10 @@ module.exports = {
     filename: "js/[name]-[contenthash].js",
     publicPath: "/",
   },
+  // devServer: {
+  //   static: './src/js/main.js',
+  //   publicPath: "/",
+  // },
   module: {
     rules: [
       {
